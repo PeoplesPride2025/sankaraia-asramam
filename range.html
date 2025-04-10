@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swamiji Divine Gallery</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --bg: #fbeec1;
+      --text: #4b2e2e;
+      --highlight: #ff6f00;
+      --card-bg: #fff8e1;
+      --title-bg: #6d1b1b;
+    }
+
+    body, html {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .gallery-section {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      margin-top: 80px;
+    }
+
+    .left, .right {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .gallery {
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 2px solid var(--highlight);
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.5s;
+    }
+
+    .right h1 {
+      font-size: 2rem;
+      color: var(--highlight);
+      margin-bottom: 15px;
+    }
+
+    .right p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .controls button {
+      background-color: var(--highlight);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .cards-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--highlight);
+      border-radius: 10px;
+      width: 300px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-title {
+      background-color: var(--title-bg);
+      color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      font-size: 1.2rem;
+    }
+
+    .video-section {
+      background-color: var(--card-bg);
+      padding: 30px;
+      text-align: center;
+    }
+
+    .video-section h2 {
+      color: var(--highlight);
+      margin-bottom: 20px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .video-controls {
+      margin-top: 15px;
+    }
+
+    .video-controls button {
+      background-color: var(--highlight);
+      color: white;
+      padding: 8px 16px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="container">
+
+  <!-- Image Gallery Section -->
+  <div class="gallery-section" id="gallery">
+    <div class="left">
+      <div class="gallery">
+        <img id="galleryImage" src="images/s5.jpeg" alt="Swamiji Image" onerror="this.src='images/fallback.jpg'" />
+      </div>
+    </div>
+    <div class="right" id="swami">
+      <h1>Swamiji's Divine Grace</h1>
+      <p>
+        Swamiji is a beacon of spiritual light, guiding souls with compassion and divine knowledge.
+        Through his teachings and presence, countless devotees find peace and purpose. This gallery
+        captures his journey and moments of grace.
+      </p>
+      <div class="controls">
+        <button onclick="toggleSlideshow()">Pause / Play</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards Section -->
+  <div class="cards-section" id="vision">
+    <div class="card">
+      <div class="card-title">Early Life</div>
+      <p>Swamiji's childhood and journey toward spiritual awakening began at a young age.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Teachings</div>
+      <p>His teachings focus on universal love, self-realization, and service to humanity.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Mission</div>
+      <p>Swamiji's mission is to uplift humanity through education, health, and spiritual guidance.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Devotee Stories</div>
+      <p>Inspiring stories from devotees who experienced transformation through his blessings.</p>
+    </div>
+  </div>
+
+  <!-- Video Section -->
+  <div class="video-section">
+    <h2>Swamiji's Divine Videos</h2>
+    <div class="video-container">
+      <iframe id="videoFrame" src="" allowfullscreen></iframe>
+    </div>
+    <div class="video-controls">
+      <button onclick="prevVideo()">Previous</button>
+      <button onclick="nextVideo()">Next</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Scripts -->
+<script>
+  // Image Slideshow
+  const images = [
+    'images/s1.jpeg', 'images/s2.jpeg', 'images/s3.jpeg', 'images/s4.jpeg', 'images/s5.jpeg',
+    'images/s6.jpeg', 'images/s7.jpeg', 'images/s8.jpeg', 'images/s9.jpeg', 'images/s10.jpeg',
+    'images/s12.jpeg', 'images/s13.jpeg', 'images/s14.jpeg', 'images/s15.jpeg', 'images/s16.jpeg',
+    'images/s17.jpeg', 'images/s18.jpeg', 'images/s19.jpeg', 'images/s20.jpeg', 'images/s21.jpeg',
+    'images/s22.jpeg', 'images/s23.jpeg', 'images/s24.jpeg'
+  ];
+  let imageIndex = 0;
+  let playing = true;
+  const galleryImage = document.getElementById("galleryImage");
+
+  function showNextImage() {
+    if (playing) {
+      imageIndex = (imageIndex + 1) % images.length;
+      galleryImage.src = images[imageIndex];
+    }
+  }
+
+  setInterval(showNextImage, 3000);
+
+  function toggleSlideshow() {
+    playing = !playing;
+  }
+
+  // Video Playlist
+  const videos = [
+    'images/swmi vedio.mp4',
+    'images/swmi vedio 2.mp4'
+  ];
+
+  let videoIndex = 0;
+  const videoFrame = document.getElementById("videoFrame");
+
+  function showVideo(index) {
+    videoFrame.src = videos[index];
+  }
+
+  function nextVideo() {
+    videoIndex = (videoIndex + 1) % videos.length;
+    showVideo(videoIndex);
+  }
+
+  function prevVideo() {
+    videoIndex = (videoIndex - 1 + videos.length) % videos.length;
+    showVideo(videoIndex);
+  }
+
+  showVideo(videoIndex);
+</script>
+
+<!-- Bootstrap JS at the end -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

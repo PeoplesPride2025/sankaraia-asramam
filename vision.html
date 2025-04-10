@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>People's Pride - Vision Page</title>
+  <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS (Optional, for toggler functionality) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 60px 20px;
+}
+
+.vision-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #2e7d32;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #00796b;
+}
+
+.card-title {
+  font-size: 22px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 16px;
+  color: #444;
+}
+
+.edge-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, #00796b, #43a047);
+  animation: slideLine 2s infinite;
+}
+
+@keyframes slideLine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.section-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 20px 60px;
+  background: linear-gradient(to right, #ffffff, #eef2f3);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title h1 {
+  font-size: 48px;
+  color: #102a43;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.section-title h1::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #ff9933;
+  display: block;
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+.section-title p {
+  font-size: 20px;
+  color: #334e68;
+}
+
+.vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.vision-block {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.vision-block:hover {
+  transform: translateY(-5px);
+}
+
+.vision-image img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.vision-content h3 {
+  font-size: 24px;
+  color: #0a3d62;
+  margin-bottom: 10px;
+}
+
+.vision-content p {
+  font-size: 16px;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .vision-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vision-block {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: #6c757d;
+}
+
+.content-box {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+blockquote {
+  font-style: italic;
+  color: #495057;
+  border-left: 4px solid #0d6efd;
+  padding-left: 1rem;
+}
+
+.text-content-section {
+  margin-top: 80px;
+  padding: 40px;
+  background: #fffefc;
+  border: 2px solid #ffe0b2;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.text-content-section h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #e65100;
+}
+
+.text-content-section p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #4e342e
+}
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-success" href="#">People's Pride Trust</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="vision.html">Vision</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="donation.html">Donate</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="vision-container">
+    <div class="title">🙏 People's Pride Vision</div>
+    <div class="subtitle">Spreading the light of Sanatana Dharma, Uplifting Villages, Empowering People</div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🌾</div>
+        <div class="card-title">Village Development</div>
+        <div class="card-text">Creating self-sustained villages with employment, clean water, education, and healthcare.</div>
+        <div class="edge-line"></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📖</div>
+        <div class="card-title">Sanatana Dharma Values</div>
+        <div class="card-text">Teaching our youth the eternal principles of Dharma through ancient scriptures, yoga, and moral living.</div>
+        <div class="edge-line"></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">👩‍🎓</div>
+        <div class="card-title">Education for All</div>
+        <div class="card-text">Free and value-based education for underprivileged children, encouraging knowledge and character.</div>
+        <div class="edge-line"></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧵</div>
+        <div class="card-title">Women Empowerment</div>
+        <div class="card-text">Training and support for women to build skills and start small businesses.</div>
+        <div class="edge-line"></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛕</div>
+        <div class="card-title">Spiritual Awareness</div>
+        <div class="card-text">Conducting satsangs, pujas, and spiritual retreats to deepen the connection with inner self and divinity.</div>
+        <div class="edge-line"></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">💼</div>
+        <div class="card-title">Income Generation</div>
+        <div class="card-text">Trust-run projects that provide daily employment while using profits for people welfare.</div>
+        <div class="edge-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-wrapper">
+    <div class="section-title">
+      <h1>Vision</h1>
+      <p>Empowering Villages with Dharma, Skill, and Innovation</p>
+    </div>
+
+    <div class="vision-grid">
+      <div class="vision-block">
+        <div class="vision-image">
+          <img src="images/farming.webp" alt="Farming">
+        </div>
+        <div class="vision-content">
+          <h3>10 Acre Farming Project</h3>
+          <p>Build a sustainable village economy through integrated organic farming.</p>
+        </div>
+      </div>
+
+      <div class="vision-block">
+        <div class="vision-image">
+          <img src="images/company build.webp" alt="Training">
+        </div>
+        <div class="vision-content">
+          <h3>5 Member Training Program</h3>
+          <p>Train five dedicated individuals in each village to implement development goals.</p>
+        </div>
+      </div>
+
+      <div class="vision-block">
+        <div class="vision-image">
+          <img src="images/garments.webp" alt="Garments">
+        </div>
+        <div class="vision-content">
+          <h3>Garment Production Units</h3>
+          <p>Provide skill training and jobs in stitching, designing, and textile production.</p>
+        </div>
+      </div>
+
+      <div class="vision-block">
+        <div class="vision-image">
+          <img src="https://tse1.mm.bing.net/th?id=OIP.pSYdDjx8SJGcvq2LtQs7CwHaHJ&pid=Api&P=0&h=180" alt="Security">
+        </div>
+        <div class="vision-content">
+          <h3>Security Company</h3>
+          <p>Build self-discipline and employment through rural security training centers.</p>
+        </div>
+      </div>
+
+      <div class="vision-block">
+        <div class="vision-image">
+          <img src="https://tse3.mm.bing.net/th?id=OIP.hXYEwmSKvIfl7sgnNvcyHgHaEK&pid=Api&P=0&h=180" alt="App Dev">
+        </div>
+        <div class="vision-content">
+          <h3>App Development Training</h3>
+          <p>Train youth in mobile and PC app development for global market opportunities.</p>
+        </div>
+      </div>
+
+      <div class="vision-block">
+        <div class="vision-image">
+          <img src="https://tse4.mm.bing.net/th?id=OIP.oglt14H4mCwh1Gd7ge_T2gHaD7&pid=Api&P=0&h=180" alt="Rural Biz">
+        </div>
+        <div class="vision-content">
+          <h3>Based in Rural Business</h3>
+          <p>Create opportunities for businesses that are dependent on rural resources and needs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-content-section">
+    <h2>Our Mission ✨</h2>
+    <p><strong>People's Pride</strong> is not just a trust — it is a movement. A mission to revive rural Bharat with a spiritual heart and a self-sustainable soul.</p>
+    <p>We believe that when villages thrive, Bharat shines.</p>
+
+    <h2>What We Aim To Do 📌</h2>
+    <ul>
+      <li>Promote <strong>Sanatana Dharma</strong> through teachings, practices, and festivals.</li>
+      <li>Launch <strong>income-generating projects</strong> to provide daily employment for villagers.</li>
+      <li>Offer <strong>free training programs</strong> in farming, stitching, technology, and more.</li>
+      <li>Empower <strong>women and youth</strong> to become leaders and earners.</li>
+      <li>Build a <strong>self-sustained village model</strong> that inspires the nation.</li>
+    </ul>
+
+    <div class="text-highlight">
+      "Let every hand in the village work. Let every heart connect with Dharma. That is the future we dream of."
+    </div>
+
+    <p>If you feel aligned with this vision, come forward. Be a part of <strong>People's Pride</strong>. Together, we can rebuild Bharat from its roots.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | People's Pride Trust</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --bg: #fff7e6;
+      --text: #3e2723;
+      --highlight: #a67c00;
+      --card-bg: #fffdf5;
+      --border-glow: #ffcc80;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'Roboto', sans-serif;
+      color: var(--text);
+      padding-top: 80px;
+    }
+    .contact-wrapper {
+      max-width: 850px;
+      margin: auto;
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px var(--border-glow);
+      border: 1px solid var(--highlight);
+    }
+
+    .contact-wrapper h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--highlight);
+      margin-bottom: 25px;
+    }
+
+    .form-control {
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    .btn-submit {
+      background-color: var(--highlight);
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .btn-submit:hover {
+      background-color: #cc9900;
+    }
+
+    .thankyou-msg {
+      display: none;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: green;
+    }
+
+    .contact-info {
+      margin-top: 40px;
+      font-size: 1rem;
+    }
+
+    .contact-info h5 {
+      color: var(--highlight);
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .map-container {
+      margin-top: 30px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      background-color: #6a1b1a;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+    }
+
+    .sub-heading {
+      text-align: center;
+      color: #8d6e63;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-success" href="#">People's Pride Trust</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="vision.html">Vision</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="donation.html">Donate</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!-- Contact Section -->
+<div class="contact-wrapper">
+  <h2>Contact People's Pride</h2>
+  <p class="sub-heading">Serving Humanity with Values of Sanathana Dharma 🙏</p>
+
+  <form onsubmit="showThankYou(event)">
+    <input type="text" class="form-control" placeholder="Your Full Name" required>
+    <input type="email" class="form-control" placeholder="Your Email Address" required>
+    <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit" class="btn btn-submit w-100">Send Message</button>
+  </form>
+  <div id="thankyou" class="thankyou-msg">🙏 Thank you for reaching out. Our team will contact you shortly.</div>
+
+  <div class="contact-info mt-4">
+    <h5>📍 Address</h5>
+    <p>
+      People's Pride Trust & annamayya janapadha kalakshetra peetam<br>
+      Eguvathupalli Village, N.P Kunta Mandal,<br>
+      Satyasai District, Andhra Pradesh – 515521
+    </p>
+
+    <h5>📞 Phone Numbers</h5>
+    <p>
+      +91 79811 68462<br>
+      +91 86886 10992
+    </p>
+
+    <h5>📧 Email</h5>
+    <p>
+      ashokmani8080@gmail.com<br>
+      support@peoplespride.org (coming soon)
+    </p>
+  </div>
+
+  <div class="map-container mt-4">
+    <iframe
+      src="https://www.google.com/maps?q=Eguvathupalli%2C%20V.N.P%20Kunta%2C%20Satyasai%20District%2C%20AP&output=embed"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 People's Pride Trust | Inspired by Sanathana Dharma | All rights reserved.
+</footer>
+
+<!-- JS -->
+<script>
+  function showThankYou(event) {
+    event.preventDefault();
+    document.getElementById('thankyou').style.display = 'block';
+  }
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
